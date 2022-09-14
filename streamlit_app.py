@@ -1,6 +1,7 @@
 # Load Packages
 import streamlit
 import pandas
+import requests
 
 # Basic Menu Header
 streamlit.title('My Parents New Healthy Diner')
@@ -23,4 +24,8 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 
 # Display Table
 streamlit.dataframe(fruits_to_show)
+
+# Display Response
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+streamlit.text(fruityvice_response)
 
